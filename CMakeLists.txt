@@ -15,11 +15,11 @@ set_target_properties(udsp PROPERTIES OUTPUT_NAME
     udsp
 )
 set_target_properties(udsp PROPERTIES LIBRARY_OUTPUT_DIRECTORY 
-    ${CMAKE_BINARY_DIR}/build
+    ${CMAKE_BINARY_DIR}/lib
 )
 set_target_properties(udsp PROPERTIES ARCHIVE_OUTPUT_DIRECTORY 
-    ${CMAKE_BINARY_DIR}/build
+    ${CMAKE_BINARY_DIR}/archive
 )
 set_target_properties(udsp PROPERTIES RUNTIME_OUTPUT_DIRECTORY 
-    ${CMAKE_BINARY_DIR}/build
+    ${CMAKE_BINARY_DIR}/runtime
 )
