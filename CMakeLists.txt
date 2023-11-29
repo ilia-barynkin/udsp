@@ -23,4 +23,5 @@ set_target_properties(udsp PROPERTIES ARCHIVE_OUTPUT_DIRECTORY
 set_target_properties(udsp PROPERTIES RUNTIME_OUTPUT_DIRECTORY 
     ${CMAKE_BINARY_DIR}/runtime
 )
+enable_testing()
 add_subdirectory(tests)
