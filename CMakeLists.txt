@@ -5,7 +5,10 @@ find_package(Python REQUIRED COMPONENTS Interpreter Development)
 
 # Define source files
 set(source_files
-    src/udsp.c
+    src/stat.c
+    src/conv.c
+    src/running_stat.c
+    src/filters.c
 )
 
 find_path(PYTHON_INCLUDE_DIR NAMES Python.h PATH_SUFFIXES python3.11)

@@ -1,7 +1,7 @@
 # udsp module
 import ctypes
 
-class stat:
+class udsp_stat:
     def __init__(self, lib_path):
         self.lib = ctypes.cdll.LoadLibrary(lib_path)
         
@@ -16,6 +16,13 @@ class stat:
         self.lib_stddev = self.lib.stddev
         self.lib_stddev.restype = ctypes.c_float
         self.lib_stddev.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.c_int]
+
+        self.lib_convolve = self.lib.convolve
+        self.lib_convolve.restype = ctypes.POINTER(ctypes.c_float)
+        self.lib_convolve.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.c_int]
+
+    def destroy(self):
+        self.lib.destroy()
 
     def mean(self, arr):
         return self.lib_mean((ctypes.c_float * len(arr))(*arr), len(arr))

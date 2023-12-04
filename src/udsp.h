@@ -1,10 +1,8 @@
 #ifndef UDSP_H
 #define UDSP_H
 
-#include "math.h"
+#include "stat.h"
+#include "conv.h"
+#include "running_stat.h"
 
-float mean(const float* sample, int len);
-float stddev(const float* sample, int len);
-float variance(const float* sample, int len);
-
-#endif
+#endif // UDSP_H

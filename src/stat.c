@@ -1,4 +1,4 @@
-#include "udsp.h"
+#include "stat.h"
 
 float mean(const float* sample, int len) {
     float sum = 0;

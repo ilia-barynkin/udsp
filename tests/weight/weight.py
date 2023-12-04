@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
-stat = udsp.stat(script_dir + "/libudsp.so")
+stat = udsp.udsp_stat(script_dir + "/libudsp.so")
 
 df = pd.read_csv("data/weight.csv", header=None)
 
