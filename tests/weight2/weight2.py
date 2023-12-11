@@ -45,6 +45,10 @@ b, a = signal.butter(4, normalized_cutoff, 'low', analog=False)
 #filtered_signal, _ = signal.lfilter(b, a, sampled_data_raw, zi=zi*sampled_data_raw[0])
 #filtered_signal = signal.filtfilt(b, a, sampled_data_raw, zi=zi*sampled_data_raw[0])
 filtered_signal = signal.filtfilt(b, a, sampled_data_raw)
+np.array2string(b, separator=', ')
+
+with open("impulse_response", "w") as f:
+    f.write(np.array2string(b, separator=', '))
 
 # Plot filtered signal
 plt.figure()
