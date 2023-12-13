@@ -1,9 +1,6 @@
 #ifndef UDSP_CONV_H
 #define UDSP_CONV_H
 
-#include <math.h>
-#include <complex.h>
-
 inline void conv(float* input, float* kernel, float* output, int input_size, int kernel_size) {
     int output_size = input_size - kernel_size + 1;
     
