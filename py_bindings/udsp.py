@@ -1,5 +1,7 @@
 # udsp module
 import ctypes
+import copy
+import numpy as np
 
 class udsp_stat:
     def __init__(self, lib_path):
@@ -18,8 +20,9 @@ class udsp_stat:
         self.lib_stddev.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.c_int]
 
         self.lib_convolve = self.lib.convolve
-        self.lib_convolve.restype = ctypes.POINTER(ctypes.c_float)
-        self.lib_convolve.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.c_int]
+        self.lib_convolve.restype = None
+        self.lib_convolve.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float),
+                     ctypes.POINTER(ctypes.c_float), ctypes.c_int, ctypes.c_int]
 
     def destroy(self):
         self.lib.destroy()
@@ -33,5 +36,16 @@ class udsp_stat:
     def stddev(self, arr):
         return self.lib_stddev((ctypes.c_float * len(arr))(*arr), len(arr))
 
-    def convolve(self, arr1, arr2):
-        return self.lib_convolve((ctypes.c_float * len(arr1))(*arr1), len(arr1), (ctypes.c_float * len(arr2))(*arr2), len(arr2))
+    def convolve(self, input_array, kernel_array):
+        output_array = np.zeros(len(input_array) - len(kernel_array) + 1)
+        input_ptr = (ctypes.c_float * len(input_array))(*input_array)
+        kernel_ptr = (ctypes.c_float * len(kernel_array))(*kernel_array)
+        output_ptr = (ctypes.c_float * len(output_array))(*output_array)
+
+        # Call the convolve function
+        self.lib_convolve(input_ptr, kernel_ptr, output_ptr, len(input_array), len(kernel_array))
+
+        # Access the resulting output array
+        output_result = [value for value in output_ptr]
+
+        return output_result

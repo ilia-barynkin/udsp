@@ -18,6 +18,7 @@ mkdir ./functests/data
 cp ../tests/weight/weight.csv ./functests/weight.csv
 cp -r ../tests/**/*.py ./functests
 cd functests
-python target.py
+mv target.py target-built.py
+python target-built.py
 
 cd ../..
