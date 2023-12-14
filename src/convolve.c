@@ -1,7 +1,6 @@
-#ifndef UDSP_CONV_H
-#define UDSP_CONV_H
+#include "convolve.h"
 
-inline void conv(float* input, float* kernel, float* output, int input_size, int kernel_size) {
+void convolve(float* input, float* kernel, float* output, int input_size, int kernel_size) {
     int output_size = input_size - kernel_size + 1;
     
     for (int i = 0; i < output_size; i++) {
@@ -11,5 +10,3 @@ inline void conv(float* input, float* kernel, float* output, int input_size, int
         }
     }
 }
-
-#endif // UDSP_CONV_H

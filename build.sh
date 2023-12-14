@@ -15,11 +15,9 @@ mkdir functests
 cp ./lib/libudsp.so ./functests
 cp -r ../py_bindings/*.py ./functests
 mkdir ./functests/data
-cp ../tests/weight/inmove1.xlsm ./functests/data/inmove1.xlsm
-cp ../tests/weight/weight.csv ./functests/data/weight.csv
-cp ../tests/dist/dist.xlsx ./functests/data/dist.xlsx
-cp ../tests/dist/dist.csv ./functests/data/dist.csv
+cp ../tests/weight/weight.csv ./functests/weight.csv
 cp -r ../tests/**/*.py ./functests
 cd functests
+python target.py
 
 cd ../..

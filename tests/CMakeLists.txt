@@ -21,6 +21,9 @@ set_tests_properties(udsp_test PROPERTIES
     WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/tests"
 )
 
+set(output_file "${CMAKE_BINARY_DIR}/tests/my_test_output.txt")
+add_custom_command(TARGET udsp_test POST_BUILD COMMAND ${CMAKE_CTEST_COMMAND} --output-log ${output_file} -R ^my_test$)
+
 # Add a custom target to run tests
 add_custom_target(run_tests
     COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure

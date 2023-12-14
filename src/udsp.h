@@ -2,7 +2,8 @@
 #define UDSP_H
 
 #include "stat.h"
-#include "conv.h"
+#include "convolve.h"
 #include "running_stat.h"
+#include "filters.h"
 
 #endif // UDSP_H

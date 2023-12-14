@@ -32,3 +32,6 @@ class udsp_stat:
 
     def stddev(self, arr):
         return self.lib_stddev((ctypes.c_float * len(arr))(*arr), len(arr))
+
+    def convolve(self, arr1, arr2):
+        return self.lib_convolve((ctypes.c_float * len(arr1))(*arr1), len(arr1), (ctypes.c_float * len(arr2))(*arr2), len(arr2))

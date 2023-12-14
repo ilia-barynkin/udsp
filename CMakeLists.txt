@@ -6,7 +6,7 @@ find_package(Python REQUIRED COMPONENTS Interpreter Development)
 # Define source files
 set(source_files
     src/stat.c
-    src/conv.c
+    src/convolve.c
     src/running_stat.c
     src/filters.c
 )

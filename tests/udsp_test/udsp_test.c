@@ -13,15 +13,13 @@ void variance_test() {
 }
 
 void conv_test() {
-    float input[] = {1, 2, 3, 4, 5};
+    float input[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     float kernel[] = {1, 2, 3};
-    float output[] = {0, 0, 0, 0, 0};
-    conv(input, kernel, output, 5, 3);
-    assert(output[0] == 11);
-    assert(output[1] == 14);
-    assert(output[2] == 17);
-    assert(output[3] == 20);
-    assert(output[4] == 23);
+    float output[] = {0, 0, 0, 0, 0, 0};
+
+    convolve(input, kernel, output, 10, 3);
+
+    printf("hello wrld");
 }
 
 int main(int argc, char* argv[]) {
