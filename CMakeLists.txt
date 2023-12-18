@@ -12,7 +12,6 @@ set(source_files
 )
 
 find_path(PYTHON_INCLUDE_DIR NAMES Python.h PATH_SUFFIXES python3.11)
-
 include_directories(src ${PYTHON_INCLUDE_DIR})
 
 # Create shared library
